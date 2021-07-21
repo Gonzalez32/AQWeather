@@ -1,2 +1,2 @@
 # AQWeather
-Still In develpment.
+Still In development.
