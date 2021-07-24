@@ -11,9 +11,52 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.css" />
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Get all "navbar-burger" elements
+            const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+
+            // Check if there are any navbar burgers
+            if ($navbarBurgers.length > 0) {
+
+                // Add a click event on each of them
+                $navbarBurgers.forEach(el => {
+                    el.addEventListener('click', () => {
+
+                        // Get the target from the "data-target" attribute
+                        const target = el.dataset.target;
+                        const $target = document.getElementById(target);
+
+                        // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
+                        el.classList.toggle('is-active');
+                        $target.classList.toggle('is-active');
+
+                    });
+                });
+            }
+        });
+    </script>
 </head>
 
 <body>
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+            <figure class="image is-64x64">
+                <a class="navbar-item" href="{% url 'home' %}">
+                    <img class="is-rounded" src="https://cdn.dribbble.com/users/904581/screenshots/2947793/lluvia.gif">
+                </a>
+            </figure>
+
+            <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
+        </div>
+    </nav>
+
+    <!-- ***************************** -->
+
     <section class="hero is-warning">
         <div class="hero-body">
             <div class="container">
@@ -86,10 +129,14 @@
             </div>
         </div>
     </section>
+
+    <!-- ****************************** -->
+
     <footer class="footer">
         <div class="content has-text-centered">
             <p>
-                <strong>WTFWL</strong> by <a href="https://github.com/Gonzalez32">Juan Gonzalez</a>. The source code is
+                &copy;<strong>WTFWL</strong> by <a href="https://github.com/Gonzalez32">Juan Gonzalez</a>. The source
+                code is
                 licensed
                 <a href="http://opensource.org/licenses/mit-license.php">MIT</a>. The website content
                 is licensed <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY NC SA 4.0</a>.
