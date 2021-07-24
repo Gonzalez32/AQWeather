@@ -22,9 +22,9 @@ def home(request):
             existing_city_count = City.objects.filter(name=new_city).count()
 
             if existing_city_count == 0:
-                get = requests.get(url.format(new_city)).json()
+                getData = requests.get(url.format(new_city)).json()
 
-                if get['cod'] == 200:
+                if getData['cod'] == 200:
                     form.save()
                 else:
                     err_msg = 'Sorry city does not exist in the world!'
@@ -65,6 +65,7 @@ def home(request):
     }
 
     return render(request, 'home.html', context)
+
 
 def delete_city(request, city_name):
     City.objects.get(name=city_name).delete()
